@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background-color: #f4f4f4;
+}
+
+/* NAVBAR */
+
+.navbar{
+    width: 100%;
+    background-color: #1f1f1f;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 40px;
+}
+
+.logo{
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.menu{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.menu li{
+    position: relative;
+}
+
+/* LINKS E BOTÃO */
+
+.menu a,
+.dropbtn{
+    color: white;
+    text-decoration: none;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    display: block;
+
+    padding: 10px 0;
+
+    transition: 0.3s;
+}
+
+.menu a:hover,
+.dropbtn:hover{
+    color: #00bfff;
+}
+
+/* DROPDOWN */
+
+.dropdown{
+    position: relative;
+}
+
+.dropdown-content{
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% - 2px);
+
+    right: 0;
+
+    background-color: white;
+
+    min-width: 220px;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+    z-index: 999;
+}
+
+.dropdown-content p{
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+/* BOTÃO */
+
+.btn-acao{
+    width: 100%;
+
+    padding: 10px;
+
+    border: none;
+
+    background-color: #1f1f1f;
+
+    color: white;
+
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.btn-acao:hover{
+    background-color: #333;
+}

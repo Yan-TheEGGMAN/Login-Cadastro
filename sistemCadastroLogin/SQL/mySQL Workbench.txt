@@ -1,0 +1,14 @@
+Oque inserir no mySQL Workbench
+
+CREATE DATABASE cadastrologin;
+
+CREATE TABLE tb_usuario (
+    id INT NOT NULL AUTO_INCREMENT,
+    nm_usuario VARCHAR(50) NOT NULL,
+    nm_login VARCHAR(50) NOT NULL,
+    ds_email VARCHAR(80) NOT NULL,
+    ds_senha VARCHAR(255) NOT NULL,
+    CONSTRAINT pk_usuario PRIMARY KEY (id),
+    CONSTRAINT uk_login UNIQUE (nm_login),
+    CONSTRAINT uk_email UNIQUE (ds_email)
+);
