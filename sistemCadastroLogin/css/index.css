@@ -1,9 +1,58 @@
 body{
-    background-image: url("../img/rato.gif");
+    background-image: url("../img/arvore.webp");
 
 
     background-position: center; /* Centraliza o rato */
     background-repeat: no-repeat; /* Não deixa o rato se multiplicar (opcional) */
     background-size: cover; /* Faz a imagem ocupar a tela inteira */
     background-attachment: fixed; /* O fundo não rola junto com a página */
+}
+
+/* Container para garantir que o card fique no topo ou centro */
+.welcome-container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    padding: 20px;
+}
+
+/* O card principal (o retângulo da imagem) */
+.welcome-card {
+    display: flex;
+    align-items: center;      /* Alinha itens verticalmente no centro */
+    justify-content: space-around; /* Espaça os ratos e o texto */
+    background-color: white;
+    border: 3px solid black;  /* Borda grossa igual ao desenho */
+    border-radius: 50px;      /* Cantos bem arredondados */
+    padding: 20px 40px;
+    min-width: 400px;         /* Largura mínima para não achatar */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra suave */
+}
+
+/* Estilo para os GIFs dos ratos */
+.rato-img {
+    width: 80px;              /* Ajuste o tamanho conforme necessário */
+    height: 80px;
+    border: 2px solid black;  /* Círculo ao redor do rato */
+    border-radius: 50%;       /* Deixa o rato circular */
+    object-fit: cover;        /* Não deixa a imagem distorcer */
+}
+
+/* Estilo para o texto centralizado */
+.welcome-text {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;   /* Empilha "bem vindo" e "NOME" */
+}
+
+.welcome-text span {
+    font-size: 1.2rem;
+    color: #555;
+    text-transform: lowercase;
+}
+
+.welcome-text h1 {
+    margin: 0;
+    font-size: 2rem;
+    text-transform: uppercase; /* Deixa o NOME em letras maiúsculas */
 }

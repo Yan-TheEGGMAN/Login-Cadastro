@@ -59,5 +59,18 @@
         </ul>
     </nav>
 <!--navegador-->
+
+<div class="welcome-container">
+    <div class="welcome-card">
+        <img src="../img/rato.gif" alt="Rato" class="rato-img">
+        
+        <div class="welcome-text">
+            <span>bem vindo</span>
+            <h1><?php echo htmlspecialchars($_SESSION["usuario"]); ?></h1>
+        </div>
+
+        <img src="../img/rato.gif" alt="Rato" class="rato-img">
+    </div>
+</div>
 </body>
 </html>
