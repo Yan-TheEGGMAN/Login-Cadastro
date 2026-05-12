@@ -1,0 +1,9 @@
+body{
+    background-image: url("../img/rato.gif");
+
+
+    background-position: center; /* Centraliza o rato */
+    background-repeat: no-repeat; /* Não deixa o rato se multiplicar (opcional) */
+    background-size: cover; /* Faz a imagem ocupar a tela inteira */
+    background-attachment: fixed; /* O fundo não rola junto com a página */
+}

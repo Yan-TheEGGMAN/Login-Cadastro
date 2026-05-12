@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+session_regenerate_id();
 require_once "conexao.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
