@@ -1,0 +1,122 @@
+/* Configurações Gerais - Mantendo o mesmo background */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    color: #ffffff; /* Texto geral do body agora é branco para contrastar */
+
+    background-image: url("../img/hack.gif");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed; 
+
+    /* Centraliza o formulário perfeitamente na tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.conteudo-centro {
+    display: flex;
+    flex-direction: column; /* Faz ficar um embaixo do outro */
+    align-items: center;    /* Centraliza na horizontal */
+    width: 100%;
+}
+
+/* Título Principal fora do formulário (opcional) */
+h2 {
+    font-size: 28px; /* Aumentou o tamanho (o padrão costuma ser 24px) */
+    color: #00ff66; /* Verde hacker vibrante */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 0; /* Cola o título no teto do formulário */
+    margin-bottom: 30px; /* Dá um espaço elegante entre o título e o primeiro input */
+    font-weight: 700; /* Deixa a letra mais grossa/negrito */
+    letter-spacing: 1px; /* Espaçamento sutil entre as letras estilo interface de sistema */
+    
+    /* Efeito de brilho neon no texto */
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.6), 
+                 0 0 20px rgba(0, 255, 102, 0.3);
+}
+
+/* Estilização do Formulário Escuro e Translúcido */
+form {
+    background-color: rgba(15, 15, 25, 0.75); /* Fundo super escuro com 75% de opacidade */
+    backdrop-filter: blur(10px); /* Efeito de vidro embaçado no GIF de fundo */
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px; /* Deixa o formulário em um tamanho elegante */
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7); /* Sombra pesada para dar profundidade */
+    border: 1px solid rgba(0, 255, 102, 0.2); /* Borda fina com um leve brilho verde */
+}
+
+/* Configuração dos textos de indicação (Nome, Login, Email) */
+form label, 
+form {
+    color: #e0e0e0;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Estilização dos Campos de Entrada (Inputs) */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.5); /* Inputs pretos semi-transparentes */
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 16px;
+    box-sizing: border-box; /* Garante que o padding não quebre a largura */
+    transition: all 0.3s ease;
+}
+
+/* Efeito quando o usuário clica para digitar no Input */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #00ff66; /* Borda acende em verde */
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.5); /* Brilho neon verde */
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Texto pequeno de ajuda (Nova senha opcional) */
+small {
+    color: #888888;
+    display: block;
+    margin-top: -15px;
+    margin-bottom: 20px;
+}
+
+/* Botão de Salvar/Enviar */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #00ff66; /* Botão verde vibrante */
+    color: #000000; /* Texto do botão preto para dar leitura */
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.3s, transform 0.1s;
+    box-shadow: 0 4px 15px rgba(0, 255, 102, 0.4);
+}
+
+button[type="submit"]:hover {
+    background-color: #00cc52; /* Verde um pouco mais escuro no hover */
+    box-shadow: 0 4px 20px rgba(0, 255, 102, 0.6);
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98); /* Efeito de clique físico */
+}
