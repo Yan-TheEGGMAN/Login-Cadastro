@@ -1,14 +1,6 @@
 <?php 
-//VERIFICA SE ESTA LOGADO
-session_start();
 
-if (isset($_SESSION["usuario"])) {
-    //libera acesso
-} else {
-    header("Location: cadastro.php");
-    exit;
-}
-
+require_once "../scripts/protocoloSessao.php";
 require_once "../scripts/conexao.php";
 
 //pega informações da database---------------------------------------------------

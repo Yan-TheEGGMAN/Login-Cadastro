@@ -1,15 +1,7 @@
 <?php 
+
+require_once "../scripts/protocoloSessao.php";
 require_once "../scripts/conexao.php";
-
-session_start();
-
-if (isset($_SESSION["usuario"])) {
-    //libera acesso
-} else {
-    header("Location: cadastro.php");
-    exit;
-}
-
 
 $id = $_GET['id'];
 

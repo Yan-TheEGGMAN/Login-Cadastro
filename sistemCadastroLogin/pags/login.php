@@ -9,10 +9,21 @@
     <title>Cadastro</title>
     <!--Styles-->
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/card.css">
    <!--Styles-->
 </head>
 <body>
+
+    <?php if (isset(($_GET['erro'])) && $_GET['erro'] == "expirado"){?>
+        <div class="alerta-erro">
+        <span class="icone-alerta">⚠️</span>
+        <div class="texto-alerta">
+            <strong>Sessão Expirada!</strong>
+            <p>Por motivos de segurança, sua sessão foi encerrada por inatividade. Faça login novamente.</p>
+        </div>
+    </div>
+<?php
+} // Fecha o IF aqui
+?>
     
 
     <div class="container">

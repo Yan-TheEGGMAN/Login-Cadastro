@@ -1,14 +1,5 @@
  <?php
-        session_start();
-
-        
-
-        if (isset($_SESSION["usuario"])) {
-            //libera acesso
-        } else {
-            header("Location: cadastro.php");
-            exit;
-        }
+       require_once "../scripts/protocoloSessao.php";
     ?>
 
 <!DOCTYPE html>

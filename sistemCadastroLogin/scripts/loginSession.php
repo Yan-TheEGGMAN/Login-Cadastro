@@ -35,8 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($usuario) {
 
         if (password_verify($senha, $usuario["ds_senha"])) {
-
-        $_SESSION["usuario"] = $usuario["nm_login"];
+        
+        //distribuição de informações para a sessão
+        $_SESSION["usuario"] = $usuario["nm_login"]; //define o usuario da sessão
+        $_SESSION['ultimo_acesso'] = time(); //define o ultimo acesso da sessão
 
         echo "Login realizado!";
 
