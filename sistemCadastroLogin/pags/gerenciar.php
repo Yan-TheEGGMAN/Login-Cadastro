@@ -68,6 +68,28 @@ try{
 </ul>
 </nav>
 <!--navegador-->
+<h1>invible title</h1>
+<h4>mueheheh</h4>               <!--!!!!!!!!!!!!!!!!!!!!A GAMBIARRA ABSOLUTA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+<h4>mueheheh</h4>
+
+<!--arêa de busca-->
+<div class="container">
+    <h2>Consulta de Cadastros</h2>
+    
+    <form action="" method="GET" class="form-busca">
+        <label for="tipo_busca">Buscar por:</label>
+        <select name="tipo_busca" id="tipo_busca">
+            <option value="id">Buscar por ID</option>
+            <option value="nome">Buscar por Nome</option>
+        </select>
+
+        <label for="valor_busca">Digite o valor:</label>
+        <input type="text" name="valor_busca" id="valor_busca" placeholder="Digite aqui...">
+
+        <button type="submit">Buscar</button>
+    </form>
+</div>
+<!---->
 
 <table>
 <thead>

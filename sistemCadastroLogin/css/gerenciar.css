@@ -1,68 +1,323 @@
-/* Configurações Gerais */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E RESET (Estilo Hacker Integrado)
+   ========================================================================== */
+   * {
     margin: 0;
-    color: #333;
-
-    background-image: url("../img/hack.gif");
-
-
-    background-position: right; /* Centraliza o rato */
-    background-repeat: no-repeat; /* Não deixa o rato se multiplicar (opcional) */
-    background-size: cover; /* Faz a imagem ocupar a tela inteira */
-    background-attachment: fixed; /* O fundo não rola junto com a página */
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Estilização da Tabela */
-table {
+body {
+    background-image: url("../img/hack.gif");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-attachment: fixed; 
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Alinha a estrutura verticalmente: Nav -> Main */
+    overflow-y: auto; /* Permite scroll vertical se a tabela crescer */
+}
+
+/* Container que envolve o formulário de busca e a tabela */
+.conteudo-principal {
     width: 100%;
     max-width: 1200px;
-    margin: 40px auto;
-    border-collapse: collapse;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    overflow: hidden; /* Garante que o border-radius apareça */
+    margin: 110px auto 40px auto; /* 110px de topo impede que a Nav fixa cubra a busca */
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-thead {
-    background-color: #2c3e50;
+/* ==========================================================================
+   2. NAVBAR FIXA (Estilo Superior Supremo)
+   ========================================================================== */
+.navbar {
+    width: 100%;
+    background-color: rgba(15, 15, 25, 0.9); /* Escuro translúcido */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 255, 102, 0.2); /* Linha verde laser */
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    z-index: 1000; /* Garante que fique acima de tudo ao scrollar */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    color: #00ff66; /* Verde hacker */
+    font-size: 22px;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.5);
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu a, .dropbtn {
+    color: #e0e0e0;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    padding: 10px 0;
+    transition: 0.3s ease;
+}
+
+.menu a:hover, .dropbtn:hover {
+    color: #00ff66; /* Acende em verde no hover */
+}
+
+/* Dropdown Interno da Nav */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: calc(100% - 2px);
+    right: 0;
+    background-color: rgba(20, 20, 30, 0.95);
+    backdrop-filter: blur(5px);
+    min-width: 220px;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 102, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.dropdown-content p {
+    margin-bottom: 15px;
     color: #ffffff;
 }
 
-th, td {
-    padding: 15px 20px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
-/* Efeito de destaque ao passar o mouse na linha */
-tbody tr:hover {
-    background-color: #f9f9f9;
+.btn-acao {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 75, 75, 0.4);
+    background-color: rgba(255, 75, 75, 0.1);
+    color: #ff4b4b;
+    border-radius: 5px;
+    cursor: pointer;
     transition: 0.3s;
 }
 
-/* Estilo do Botão Editar */
+.btn-acao:hover {
+    background-color: #ff4b4b;
+    color: #000000;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   3. FORMULÁRIO DE BUSCA DINÂMICA (Tamanho Controlado)
+   ========================================================================== */
+.form-busca {
+    background-color: rgba(15, 15, 25, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 102, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    
+    width: 100%;
+    max-width: 600px; /* Tamanho fixo elegante centralizado */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.grupo-busca {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.grupo-busca-select {
+    flex: 0 0 150px; /* Largura travada para o select */
+}
+
+.form-busca label {
+    color: #00ff66;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.form-busca select,
+.form-busca input[type="text"] {
+    width: 100%;
+    height: 42px;
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.form-busca select:focus,
+.form-busca input[type="text"]:focus {
+    outline: none;
+    border-color: #00ff66;
+    box-shadow: 0 0 8px rgba(0, 255, 102, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.form-busca button[type="submit"] {
+    height: 42px;
+    padding: 0 25px;
+    background-color: #00ff66;
+    color: #000000;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 255, 102, 0.3);
+}
+
+.form-busca button[type="submit"]:hover {
+    background-color: #00cc52;
+    box-shadow: 0 4px 20px rgba(0, 255, 102, 0.5);
+}
+
+/* ==========================================================================
+   4. TABELA DE RESULTADOS TRANSLÚCIDA (Expansiva no Eixo Y)
+   ========================================================================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(15, 15, 25, 0.75); /* Casou com o formulário */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    overflow: hidden; 
+    border: 1px solid rgba(0, 255, 102, 0.2);
+    margin-bottom: 40px; /* Espaço na base se a tabela for gigante */
+}
+
+thead {
+    background-color: rgba(0, 255, 102, 0.1); /* Fundo verde laser bem sutil */
+    border-bottom: 2px solid rgba(0, 255, 102, 0.4);
+}
+
+th {
+    color: #00ff66; /* Cabeçalho verde neon */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    padding: 18px 20px;
+    text-align: left;
+}
+
+td {
+    padding: 16px 20px;
+    color: #ffffff;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Linha divisória fina */
+}
+
+/* Destaque de linha ao passar o mouse */
+tbody tr:hover {
+    background-color: rgba(0, 255, 102, 0.05); /* Brilho verde fantasma na linha */
+    transition: background 0.2s ease;
+}
+
+/* Botão de Ação Editar dentro da Tabela */
 .btn-editar {
     display: inline-block;
     padding: 8px 16px;
-    background-color: #3498db;
-    color: white;
+    background-color: rgba(0, 191, 255, 0.1); /* Azul translúcido */
+    color: #00bfff;
+    border: 1px solid rgba(0, 191, 255, 0.4);
     text-decoration: none;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 6px;
+    font-size: 13px;
     font-weight: bold;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
 }
 
 .btn-editar:hover {
-    background-color: #2980b9;
+    background-color: #00bfff;
+    color: #000000;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
 }
 
-/* Responsividade (Para celular) */
-@media (max-width: 600px) {
+/* ==========================================================================
+   5. ALERTAS E SUPORTE (Erros de Inatividade / Busca)
+   ========================================================================== */
+.alerta-erro, .error {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 75, 75, 0.12); 
+    border: 1px solid rgba(255, 75, 75, 0.4); 
+    border-radius: 8px;
+    padding: 14px 18px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 0 20px 0; 
+    box-shadow: 0 4px 15px rgba(255, 75, 75, 0.1);
+    animation: surgindo 0.3s ease-out;
+}
+
+.error {
+    color: #ff4b4b; /* Garante a cor do texto de erro da busca */
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@keyframes surgindo {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   6. RESPONSIVIDADE (Mobile Layout)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    .form-busca {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .grupo-busca-select {
+        flex: none;
+    }
     th, td {
-        padding: 10px;
-        font-size: 12px;
+        padding: 12px 15px;
+        font-size: 13px;
     }
 }

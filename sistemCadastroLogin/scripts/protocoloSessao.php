@@ -18,7 +18,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
     $tempoInativo = $tempoAtual - $_SESSION['ultimo_acesso'];
 
-    if($tempoInativo >15){
+    if($tempoInativo >300){
         // Destrói a sessão completamente
         session_unset();
         session_destroy();
